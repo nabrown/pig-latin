@@ -59,7 +59,18 @@ describe( "count characters function", function(){
 	})
 })
 
-describe( "display pig latin", function(){
+describe( "is whitespace event function", function(){
+	var e1 = jQuery.Event('keydown', {which : 13});
+	var e2 = jQuery.Event('keydown', {which : 83});
+	it('returns true if keypress is whitespace char', function(){
+		expect(isWhitespaceEvent(e1)).toBeTruthy();
+	});
+	it('returns false if it is other than whitespace', function(){
+		expect(isWhitespaceEvent(e2)).toBeFalsy();
+	})
+})
+
+describe( "display pig latin plugin", function(){
 	var input, button, div;
 	beforeEach(function(){
 		jasmine.getFixtures().fixturesPath = 'spec/fixtures';
@@ -68,7 +79,11 @@ describe( "display pig latin", function(){
 		$('#form').find('button').trigger('click');
 	});
 
-	it('displays translated text from input in div', function(){
+	it('displays translated text from textarea in div when button is clicked', function(){
 		expect($('#form').find('div').text()).toEqual('elloHay');
 	})
+	it('displays translated text as each word is typed', function(){
+		expect($('#form').find('div').text()).toEqual('elloHay');
+	})
+
 })
