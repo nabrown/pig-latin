@@ -81,15 +81,31 @@ function reportNumChars(string){
 
 }
 
+function isWhitespaceEvent(event){
+	var WHITESPACE_KEYS = [13,32,9];
+	return (WHITESPACE_KEYS.indexOf(event.which) !== -1);
+}
+
 
 (function( $ ) {
  
     $.fn.piggify = function() {
- 		var el = $(this);
-    	el.find('button').on('click', function(){
-			var before = $('#input').val(),
+ 		var el = $(this),
+ 			input = $('#input'),
+ 			display = $('#display');
+
+ 		input.on('keydown',function(event){
+ 			if(isWhitespaceEvent(event)){		
+ 				var before = input.val(),
 				after = pigLatinPhrase(before);
-			el.find('#display').text(after);
+				display.text(after);
+			}
+ 		})
+
+    	el.find('button').on('click', function(){
+			var before = input.val(),
+				after = pigLatinPhrase(before);
+			display.text(after);
 			return false;
 		});
 	}
