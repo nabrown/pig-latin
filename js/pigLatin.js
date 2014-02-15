@@ -87,9 +87,9 @@ function reportNumChars(string){
     $.fn.piggify = function() {
  		var el = $(this);
     	el.find('button').on('click', function(){
-			var before = el.find('input').val(),
+			var before = $('#input').val(),
 				after = pigLatinPhrase(before);
-			el.find('div').text(after);
+			el.find('#display').text(after);
 			return false;
 		});
 	}

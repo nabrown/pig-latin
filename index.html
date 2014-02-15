@@ -1,25 +1,28 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Jasmine Spec Runner v2.0.0</title>
-
-  <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.0.0/jasmine_favicon.png">
-  <link rel="stylesheet" type="text/css" href="lib/jasmine-2.0.0/jasmine.css">
-
-
-  <script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script>
-
-
-
-
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Make it Piggy!</title>
+	<link href='http://fonts.googleapis.com/css?family=Alef' rel='stylesheet' type='text/css'>
+	<link href='css/piggy.css' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
+	<h1>Get Piggy With It</h1>
+	<form>
 
-  <input type="text" id="input" value="Hello" /><button id="submit">submit</button><div id="display"></div>
+		<textarea type="text" id="input" value="Hello" ></textarea>
+		<button id="submit">make it piggy</button>
+		<div id="display" class="display"></div>
+	</form>
+
+
+  
+	<script type="text/javascript" src="bower_components/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="js/pigLatin.js"></script>
+
+	<script>
+		$('form').piggify();
+	</script>
 </body>
-
-  <!-- include source files here... -->
-  <script type="text/javascript" src="src/Greeting.js"></script>
 </html>
